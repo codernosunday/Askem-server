@@ -7,7 +7,12 @@ const connect = url => {
 };
 
 if (require.main === module) {
-  app.listen(config.port);
+  if (process.env.ENVIROMENT === 'deloy') {
+    app.listen(process.env.PORT);
+  }
+  else {
+    app.listen(config.port);
+  }
   connect(config.db.prod);
   mongoose.connection.on('error', console.log);
 }

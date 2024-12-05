@@ -1,6 +1,6 @@
 
 module.exports = {
-  port: process.env.PORT,
+  port: process.env.APP_PORT,
   db: {
     prod: process.env.DATABASE_URL,
     test: 'mongodb://localhost/askem-db-test',
