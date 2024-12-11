@@ -8,8 +8,8 @@ const app = express();
 
 app.use(cors());
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
-app.use(bodyParser.json({ limit: '1mb' }));
+app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
+app.use(bodyParser.json({ limit: '5mb' }));
 require('./routes.js')(app);
 
 module.exports = app;
