@@ -3,6 +3,7 @@ const Question = require('../models/question');
 exports.listPopulerTags = async (req, res, next) => {
   try {
     const tags = await Question.aggregate([
+      { $match: { idgroup: "false" } },
       { $project: { tags: 1 } },
       { $unwind: '$tags' },
       { $group: { _id: '$tags', count: { $sum: 1 } } },
@@ -18,6 +19,7 @@ exports.listPopulerTags = async (req, res, next) => {
 exports.listTags = async (req, res, next) => {
   try {
     const tags = await Question.aggregate([
+      { $match: { idgroup: "false" } },
       { $project: { tags: 1 } },
       { $unwind: '$tags' },
       { $group: { _id: '$tags', count: { $sum: 1 } } },
@@ -33,6 +35,7 @@ exports.searchTags = async (req, res, next) => {
   const { tag = '' } = req.params;
   try {
     const tags = await Question.aggregate([
+      { $match: { idgroup: "false" } },
       { $project: { tags: 1 } },
       { $unwind: '$tags' },
       { $group: { _id: '$tags', count: { $sum: 1 } } },

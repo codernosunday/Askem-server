@@ -7,7 +7,7 @@ const connect = url => {
 };
 
 if (require.main === module) {
-  if (process.env.ENVIROMENT === 'deloy') {
+  if (process.env.ENVIROMENT === 'deloyment') {
     app.listen(process.env.PORT);
   }
   else {
